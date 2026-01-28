@@ -1,0 +1,19 @@
+# Build
+bin/
+obj/
+
+# User-specific
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Environment
+appsettings.Development.json
+
+# OS
+.DS_Store
+Thumbs.db
