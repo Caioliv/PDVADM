@@ -1,17 +1,34 @@
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
+using PDVADM.Infrastructure.Database;
 
-namespace PDVADM.Api.Controllers;
-
+namespace PDVADM.Controllers
+{
     [ApiController]
-    [Route("api/health")]
-    public class HealthController : ControllerBase
+    [Route("api/database-health")]
+    public class DatabaseHealthController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        private readonly DbConnectionFactory _connectionFactory;
+
+        public DatabaseHealthController(DbConnectionFactory connectionFactory)
         {
-            return Ok(new { 
-                status = "PDVADM API online!",
-                timestamp = DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss")
+            _connectionFactory = connectionFactory;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            using var connection = _connectionFactory.CreateConnection();
+
+            var dbTime = await connection.QuerySingleAsync<DateTime>(
+                "SELECT NOW()"
+            );
+
+            return Ok(new
+            {
+                status = "ok",
+                database_time = dbTime
             });
         }
     }
+}

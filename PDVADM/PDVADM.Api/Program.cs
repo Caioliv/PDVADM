@@ -1,7 +1,10 @@
+using PDVADM.Infrastructure.Database;
+    
 var builder = WebApplication.CreateBuilder(args);
 
 // Controllers
 builder.Services.AddControllers();
+builder.Services.AddSingleton<DbConnectionFactory>();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
