@@ -1,12 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.2.11415.280
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PDVADM", "PDVADM", "{FBCCDD0E-C507-916F-4C18-58337813A450}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDVADM.Api", "PDVADM\PDVADM.Api\PDVADM.Api.csproj", "{E232D7E0-74D0-38D8-E661-0E23A3BB2787}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDVADM.Application", "PDVADM\PDVADM.Application\PDVADM.Application.csproj", "{A1DF42E8-4220-464B-A7E8-483454D5D008}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,17 +16,12 @@ Global
 		{E232D7E0-74D0-38D8-E661-0E23A3BB2787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E232D7E0-74D0-38D8-E661-0E23A3BB2787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E232D7E0-74D0-38D8-E661-0E23A3BB2787}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A1DF42E8-4220-464B-A7E8-483454D5D008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1DF42E8-4220-464B-A7E8-483454D5D008}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1DF42E8-4220-464B-A7E8-483454D5D008}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1DF42E8-4220-464B-A7E8-483454D5D008}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E232D7E0-74D0-38D8-E661-0E23A3BB2787} = {FBCCDD0E-C507-916F-4C18-58337813A450}
-		{A1DF42E8-4220-464B-A7E8-483454D5D008} = {FBCCDD0E-C507-916F-4C18-58337813A450}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0F4257E9-F0E0-4AD1-A273-6A2FAE90AD5C}
