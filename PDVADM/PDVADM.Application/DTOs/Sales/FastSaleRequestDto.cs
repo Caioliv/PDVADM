@@ -13,10 +13,3 @@ public class FastSaleRequestDto
     public decimal Discount { get; set; }
     public string? Notes { get; set; }
 }
-
-public class FastSaleItemDto
-{
-    public long ProductId { get; set; }
-    public int Quantity { get; set; }
-    public decimal UnitPrice { get; set; }
-}

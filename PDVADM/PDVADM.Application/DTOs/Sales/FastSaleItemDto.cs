@@ -8,7 +8,7 @@ namespace PDVADM.Application.DTOs.Sales;
 
 public class FastSaleItemDto
 {
-    public int ProductId { get; set; }
-
+    public long ProductId { get; set; }
     public int Quantity { get; set; }
+    public decimal UnitPrice { get; set; }
 }

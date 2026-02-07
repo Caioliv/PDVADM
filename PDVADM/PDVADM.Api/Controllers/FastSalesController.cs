@@ -4,20 +4,25 @@ using PDVADM.Application.Services.Sales;
 
 
 [ApiController]
-[Route("api/fast-sale")]
-public class FastSaleController : ControllerBase
+[Route("api/sales")]
+public class SalesController : ControllerBase
 {
     private readonly IFastSaleService _fastSaleService;
 
-    public FastSaleController(IFastSaleService fastSaleService)
+    public SalesController(IFastSaleService fastSaleService)
     {
         _fastSaleService = fastSaleService;
     }
 
-    [HttpPost]
-    public async Task<IActionResult> Create(FastSaleRequestDto request)
+    [HttpPost("fast")]
+    public async Task<IActionResult> FastSale([FromBody] FastSaleRequest request)
     {
-        var saleId = await _fastSaleService.CreateAsync(request);
-        return Ok(new { saleId });
+        await _fastSaleService.ExecuteAsync(request);
+
+        return Ok(new
+        {
+            message = "Fast sale recebida com sucesso",
+            timestamp = DateTime.UtcNow.AddHours(-3)
+        });
     }
 }
