@@ -1,15 +1,18 @@
 using PDVADM.Infrastructure.Database;
 using PDVADM.Application.Services.Sales;
-using PDVADM.Api.Services.Sales;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Controllers
 builder.Services.AddControllers();
+
+// Registro de Serviços
 builder.Services.AddSingleton<DbConnectionFactory>();
-builder.Services.AddSingleton<ISaleRepository, InMemorySaleRepository>();
-builder.Services.AddSingleton<IStockService, NoopStockService>();
-builder.Services.AddScoped<IFastSaleService, FastSaleService>();
+
+// Agora o compilador vai encontrar as classes porque você adicionou os 'using' acima
+builder.Services.AddScoped<PDVADM.Application.Services.Sales.ISaleRepository, PDVADM.Api.Services.Sales.InMemorySaleRepository>();
+builder.Services.AddScoped<PDVADM.Application.Services.Sales.IStockService, PDVADM.Api.Services.Sales.NoopStockService>();
+builder.Services.AddScoped<PDVADM.Application.Services.Sales.IFastSaleService, PDVADM.Application.Services.Sales.FastSaleService>();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -17,7 +20,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -25,10 +27,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
-// Mapeia Controllers
 app.MapControllers();
 
 app.Run();
