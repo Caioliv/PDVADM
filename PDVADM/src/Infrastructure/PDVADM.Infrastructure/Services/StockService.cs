@@ -1,6 +1,7 @@
 using Dapper;
-using PDVADM.Application.Services.Sales;
+using PDVADM.Application.Features.Sales.Interfaces;
 using System.Data;
+using PDVADM.Infrastructure.Database;
 
 namespace PDVADM.Infrastructure.Services;
 

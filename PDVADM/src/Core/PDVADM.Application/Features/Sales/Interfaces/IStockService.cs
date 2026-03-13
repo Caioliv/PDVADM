@@ -1,4 +1,4 @@
-namespace PDVADM.Application.Services.Sales;
+namespace PDVADM.Application.Features.Sales.Interfaces;
 
 public interface IStockService
 {

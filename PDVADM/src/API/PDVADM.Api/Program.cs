@@ -1,24 +1,26 @@
+using PDVADM.Application.Features.Sales.Interfaces;
+using PDVADM.Application.Features.Sales.Services;
 using PDVADM.Infrastructure.Database;
-using PDVADM.Application.Services.Sales;
+using PDVADM.Infrastructure.Repositories.Dapper;
+using PDVADM.Infrastructure.Repositories.InMemory;
+using PDVADM.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Controllers
 builder.Services.AddControllers();
 
-// Registro de Serviços
-builder.Services.AddSingleton<DbConnectionFactory>();
-
-// Agora o compilador vai encontrar as classes porque você adicionou os 'using' acima
-builder.Services.AddScoped<PDVADM.Application.Services.Sales.ISaleRepository, PDVADM.Api.Services.Sales.InMemorySaleRepository>();
-builder.Services.AddScoped<PDVADM.Application.Services.Sales.IStockService, PDVADM.Api.Services.Sales.NoopStockService>();
-builder.Services.AddScoped<PDVADM.Application.Services.Sales.IFastSaleService, PDVADM.Application.Services.Sales.FastSaleService>();
-builder.Services.AddScoped<IStockService, StockService>();
-builder.Services.AddScoped<IFastSaleService, FastSaleService>();
-
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Infra
+builder.Services.AddSingleton<IDbConnectionFactory, DbConnectionFactory>();
+
+// Repositorios e Servicos
+builder.Services.AddScoped<ISaleRepository, InMemorySaleRepository>();
+builder.Services.AddScoped<IStockService, NoopStockService>();
+builder.Services.AddScoped<IFastSaleService, FastSaleService>();
 
 var app = builder.Build();
 
@@ -31,5 +33,4 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-
 app.Run();

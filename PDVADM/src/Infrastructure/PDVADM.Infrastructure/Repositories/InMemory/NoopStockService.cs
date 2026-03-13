@@ -1,6 +1,6 @@
-using PDVADM.Application.Services.Sales;
+using PDVADM.Application.Features.Sales.Interfaces;
 
-namespace PDVADM.Api.Services.Sales;
+namespace PDVADM.Infrastructure.Repositories.InMemory;
 
 public sealed class NoopStockService : IStockService
 {
