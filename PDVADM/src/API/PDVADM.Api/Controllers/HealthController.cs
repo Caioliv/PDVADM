@@ -2,7 +2,7 @@ using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using PDVADM.Infrastructure.Database;
 
-namespace PDVADM.Controllers
+namespace PDVADM.Api.Controllers
 {
     [ApiController]
     [Route("api/database-health")]

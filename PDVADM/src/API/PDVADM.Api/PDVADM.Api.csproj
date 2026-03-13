@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PDVADM.Application\PDVADM.Application.csproj" />
+    <ProjectReference Include="..\..\Core\PDVADM.Application\PDVADM.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\PDVADM.Infrastructure\PDVADM.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
