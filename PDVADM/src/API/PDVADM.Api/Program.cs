@@ -13,6 +13,8 @@ builder.Services.AddSingleton<DbConnectionFactory>();
 builder.Services.AddScoped<PDVADM.Application.Services.Sales.ISaleRepository, PDVADM.Api.Services.Sales.InMemorySaleRepository>();
 builder.Services.AddScoped<PDVADM.Application.Services.Sales.IStockService, PDVADM.Api.Services.Sales.NoopStockService>();
 builder.Services.AddScoped<PDVADM.Application.Services.Sales.IFastSaleService, PDVADM.Application.Services.Sales.FastSaleService>();
+builder.Services.AddScoped<IStockService, StockService>();
+builder.Services.AddScoped<IFastSaleService, FastSaleService>();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
